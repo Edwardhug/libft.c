@@ -2,7 +2,7 @@
 
 int	main()
 {
-	char	c = 0;
-	char	s[] = "tripouille";
+	char	c = 'b';
+	char	s[] = "aaatripouilleaaaa";
 	ft_split(s, c);
 }

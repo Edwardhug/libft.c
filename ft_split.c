@@ -6,69 +6,87 @@
 /*   By: lgabet <lgabet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 09:44:20 by lgabet            #+#    #+#             */
-/*   Updated: 2022/11/15 12:32:24 by lgabet           ###   ########.fr       */
+/*   Updated: 2022/11/16 12:42:06 by lgabet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_size(char const *s, char c, int i)
+int	ft_count(char *str, char c)
 {
-	while (s[i] != c && s[i])
-		i++;
-	return (i);
-}
-
-int	ft_countseg(char const *s, char c)
-{
-	int	ret;
+	int	count;
 	int	i;
 
 	i = 0;
-	ret = 0;
-	while (s[i])
+	count = 0;
+	while (str[i])
 	{
-		if (s[i] != c)
+		if (str[i] != c)
 		{
-			while (s[i] != c)
+			while (str[i] != c && str[i])
 				i++;
-			ret++;
+			count++;
 		}
-		i++;
+		else
+			i++;
 	}
-	if (s[0] != c)
-		ret--;
-	if (s[ft_strlen(s)] == c)
-		ret--;
-	//printf("%d\n", ret);
-	return (ret);
+	return (count);
 }
 
-char	**ft_algo(char const *s, char c, char **ret, int i)
+void	ft_free(char **str, char *tamp)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != (NULL))
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
+	free(tamp);
+}
+
+int	ft_size(char *str, int i, char c)
+{
+	int	count;
+
+	count = 0;
+	while (str[i] && str[i] != c)
+	{
+		count++;
+		i++;
+	}
+	return (count);
+}
+
+char	**ft_algo(char *str, char c, char **ret, int i)
 {
 	int	j;
 	int	k;
 
-	j = 0;
-	while (i < ft_countseg(s, c) && s[j])
+	k = 0;
+	while (str[i])
 	{
-		k = 0;
-		while (s[j] == c)
-			j++;
-		if (s[j] != c || s[j] != '\0')
+		j = 0;
+		if (str[i] != c)
 		{
-			ret[i] = malloc(sizeof(char) * ft_size(s, c, i));
-			if (!ret[i])
+			ret[k] = malloc(sizeof(char) * ft_size(str, i, c) + 1);
+			if (!ret)
+			{
+				ft_free(ret, str);
 				return (NULL);
+			}
+			while (j < ft_size(str, i, c))
+			{
+				ret[k][j] = str[i + j];
+				j++;
+			}
+			i = i + j;
+			ret[k++][j] = '\0';
 		}
-		while (s[j] != c && s[j])
-		{
-			ret[i][k] = s[j];
-			j++;
-			k++;
-		}
-		ret[i][k] = '\0';
-		i++;
+		else
+			i++;
 	}
 	return (ret);
 }
@@ -76,14 +94,19 @@ char	**ft_algo(char const *s, char c, char **ret, int i)
 char	**ft_split(char const *s, char c)
 {
 	char	**ret;
+	char	*tamp;
 	int		i;
 
 	i = 0;
-	ret = malloc(sizeof(char *) * (ft_countseg(s, c) + 1));
+	tamp = ft_strtrim(s, &c);
+	ret = malloc(sizeof(char *) * (ft_count(tamp, c) + 1));
 	if (!ret)
+	{
+		ft_free(ret, tamp);
 		return (NULL);
-	ft_algo(s, c, ret, i);
-	ret[ft_countseg(s, c)] = (NULL);
-	printf("%s\n", ret[1]);
+	}
+	ret = ft_algo(tamp, c, ret, i);
+	ret[ft_count(tamp, c)] = 0;
+	free(tamp);
 	return (ret);
 }
