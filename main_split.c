@@ -2,7 +2,15 @@
 
 int	main()
 {
-	char	c = 'b';
-	char	s[] = "aaatripouilleaaaa";
-	ft_split(s, c);
+	char *str = NULL;
+	char c = 'a';
+	char **result;
+	result = ft_split(str, c);
+	int i = 0;
+	printf("%s\n", "salut");
+	while (result[i])
+	{
+		printf("%s\n", result[i]);
+		i++;
+	}
 }

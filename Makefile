@@ -6,7 +6,7 @@
 #    By: lgabet <lgabet@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/09 17:05:16 by lgabet            #+#    #+#              #
-#    Updated: 2022/11/15 10:01:56 by lgabet           ###   ########.fr        #
+#    Updated: 2022/11/16 14:16:54 by lgabet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,8 @@ ft_strncmp.c\
 ft_substr.c\
 ft_strjoin.c\
 ft_strtrim.c\
-ft_split.c
+ft_split.c\
+ft_itoa.c
 
 HEADERS = libft.h
 OBJS= ${SRCS:.c=.o}

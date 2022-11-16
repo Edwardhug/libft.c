@@ -6,7 +6,7 @@
 /*   By: lgabet <lgabet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 09:44:20 by lgabet            #+#    #+#             */
-/*   Updated: 2022/11/16 13:02:15 by lgabet           ###   ########.fr       */
+/*   Updated: 2022/11/16 14:00:26 by lgabet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_count(char *str, char c)
 	return (count);
 }
 
-char	*ft_free(char **str, char *tamp)
+char	**ft_free(char **str, char *tamp)
 {
 	int	i;
 
@@ -74,8 +74,8 @@ char	**ft_algo(char *str, char c, char **ret, int i)
 		{
 			ret[k] = malloc(sizeof(char) * ft_size(str, i, c) + 1);
 			if (!ret)
-				ft_free(ret, str);
-			while (j < ft_size(str, i, c))
+				return (ft_free(ret, str));
+			while (j < ft_size(str, i, c) && str[i])
 			{
 				ret[k][j] = str[i + j];
 				j++;
@@ -94,12 +94,20 @@ char	**ft_split(char const *s, char c)
 	char	**ret;
 	char	*tamp;
 	int		i;
+	char	set[2];
 
+	set[0] = c;
+	set[1] = '\0';
 	i = 0;
-	tamp = ft_strtrim(s, &c);
+	if (!s)
+		return (NULL);
+	tamp = ft_strtrim(s, set);
 	ret = malloc(sizeof(char *) * (ft_count(tamp, c) + 1));
 	if (!ret)
-		ft_free(ret, tamp);
+	{
+		free(tamp);
+		return (NULL);
+	}
 	ret = ft_algo(tamp, c, ret, i);
 	ret[ft_count(tamp, c)] = 0;
 	free(tamp);
