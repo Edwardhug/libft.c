@@ -6,7 +6,7 @@
 /*   By: lgabet <lgabet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 09:44:20 by lgabet            #+#    #+#             */
-/*   Updated: 2022/11/16 12:42:06 by lgabet           ###   ########.fr       */
+/*   Updated: 2022/11/16 13:02:15 by lgabet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_count(char *str, char c)
 	return (count);
 }
 
-void	ft_free(char **str, char *tamp)
+char	*ft_free(char **str, char *tamp)
 {
 	int	i;
 
@@ -45,6 +45,7 @@ void	ft_free(char **str, char *tamp)
 	}
 	free(str);
 	free(tamp);
+	return (NULL);
 }
 
 int	ft_size(char *str, int i, char c)
@@ -73,10 +74,7 @@ char	**ft_algo(char *str, char c, char **ret, int i)
 		{
 			ret[k] = malloc(sizeof(char) * ft_size(str, i, c) + 1);
 			if (!ret)
-			{
 				ft_free(ret, str);
-				return (NULL);
-			}
 			while (j < ft_size(str, i, c))
 			{
 				ret[k][j] = str[i + j];
@@ -101,10 +99,7 @@ char	**ft_split(char const *s, char c)
 	tamp = ft_strtrim(s, &c);
 	ret = malloc(sizeof(char *) * (ft_count(tamp, c) + 1));
 	if (!ret)
-	{
 		ft_free(ret, tamp);
-		return (NULL);
-	}
 	ret = ft_algo(tamp, c, ret, i);
 	ret[ft_count(tamp, c)] = 0;
 	free(tamp);
