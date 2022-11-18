@@ -2,9 +2,10 @@
 
 int	main()
 {
-	char	str[] = "hello world";
-	int		a = 'd';
+	char s[] = {0, 1, 2 ,3 ,4 ,5};
+	//int		a = 'd';
 
-	printf("%s\n", memchr(str, a, 5));
-	printf("%s\n", ft_memchr(str, a, 5));
+	printf("%s\n", memchr(s, 255 + 3, 3));
+
+	printf("%s\n", ft_memchr(s, 255 + 3, 3));
 }
