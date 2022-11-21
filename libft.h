@@ -6,7 +6,7 @@
 /*   By: lgabet <lgabet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:37:24 by lgabet            #+#    #+#             */
-/*   Updated: 2022/11/21 19:45:37 by lgabet           ###   ########.fr       */
+/*   Updated: 2022/11/21 19:53:18 by lgabet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,6 @@ void    ft_striteri(char *s, void (*f)(unsigned int, char*));
 void    ft_putchar_fd(char c, int fd);
 void    ft_putstr_fd(char *s, int fd);
 void    ft_putendl_fd(char *s, int fd);
+void    ft_putnbr_fd(int n, int fd);
 
 #endif
