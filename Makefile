@@ -6,7 +6,7 @@
 #    By: lgabet <lgabet@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/09 17:05:16 by lgabet            #+#    #+#              #
-#    Updated: 2022/11/21 19:41:14 by lgabet           ###   ########.fr        #
+#    Updated: 2022/11/21 19:45:57 by lgabet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,8 @@ ft_itoa.c\
 ft_strmapi.c\
 ft_striteri.c\
 ft_putchar_fd.c\
-ft_putstr_fd.c
+ft_putstr_fd.c\
+ft_putendl_fd.c
 
 HEADERS = libft.h
 OBJS= ${SRCS:.c=.o}
