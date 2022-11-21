@@ -1,40 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgabet <lgabet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/09 16:03:31 by lgabet            #+#    #+#             */
-/*   Updated: 2022/11/10 17:29:43 by lgabet           ###   ########.fr       */
+/*   Created: 2022/11/21 17:22:48 by lgabet            #+#    #+#             */
+/*   Updated: 2022/11/21 17:49:42 by lgabet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+void    ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	int		len;
-	char	*s2;
-	char	*r;
-	int		i;
-
-	s2 = (char *)s1;
-	len = ft_strlen(s2);
-	i = 0;
-	r = malloc (sizeof(char) * len + 1);
-	if (!r)
-		return (NULL);
-	if (len == 0)
-	{
-		r[0] = '\0';
-		return (r);
-	}
-	while (i < len)
-	{
-		r[i] = s2[i];
-		i++;
-	}
-	r[i] = '\0';
-	return (r);
+    unsigned int    i;
+    unsigned int    i2;
+    
+    i = 0;
+    i2 = ft_strlen(s);
+    if (s != NULL && f != NULL)
+    {
+    while (i < i2)
+    {
+        (*f)(i, s);
+        s++;
+        i++;
+    }
+    }
 }

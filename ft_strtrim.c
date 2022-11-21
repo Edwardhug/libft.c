@@ -33,7 +33,7 @@ int	ft_lenend(char const *s1, char const *set)
 
 	count = 0;
 	i = ft_strlen(s1) - 1;
-	while (ft_charstr(s1[i], set) != 0)
+	while (ft_charstr(s1[i], set) != 0 && i >= 0)
 	{
 		count++;
 		i--;
@@ -48,7 +48,7 @@ size_t	ft_lenbegin(char const *s1, char const *set)
 
 	i = 0;
 	count = 0;
-	while (ft_charstr(s1[i], set) != 0)
+	while (ft_charstr(s1[i], set) != 0 && s1[i])
 	{
 		count++;
 		i++;
@@ -72,7 +72,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		str[0] = '\0';
 		return (str);
 	}
-	str = malloc(sizeof(char) * size);
+	str = malloc(sizeof(char) * size + 1);
 	if (!str)
 		return (NULL);
 	while (i < size)
