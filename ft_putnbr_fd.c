@@ -6,7 +6,7 @@
 /*   By: lgabet <lgabet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 19:52:54 by lgabet            #+#    #+#             */
-/*   Updated: 2022/11/21 20:12:53 by lgabet           ###   ########.fr       */
+/*   Updated: 2022/11/21 23:02:57 by lgabet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ void    ft_putnbr_fd(int n, int fd)
     if (n > 9)
         ft_putnbr_fd(n / 10, fd);
     
-    ft_putchar_fd((n % 10), fd);
+    ft_putchar_fd((n % 10) + '0', fd);
     }
 }
