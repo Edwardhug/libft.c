@@ -6,7 +6,7 @@
 #    By: lgabet <lgabet@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/09 17:05:16 by lgabet            #+#    #+#              #
-#    Updated: 2022/11/22 16:00:14 by lgabet           ###   ########.fr        #
+#    Updated: 2022/11/22 16:07:58 by lgabet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ ft_putstr_fd.c\
 ft_putendl_fd.c\
 ft_putnbr_fd.c
 
-SRCS_B = ft_lstnew_bonus.c\
+SRCS_B = ft_lstnew.c\
 
 HEADERS = libft.h
 OBJS= ${SRCS:.c=.o}
