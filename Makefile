@@ -6,7 +6,7 @@
 #    By: lgabet <lgabet@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/09 17:05:16 by lgabet            #+#    #+#              #
-#    Updated: 2022/11/23 10:05:49 by lgabet           ###   ########.fr        #
+#    Updated: 2022/11/23 10:20:40 by lgabet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,6 +51,7 @@ ft_putnbr_fd.c
 SRCS_B = ft_lstnew.c\
 ft_lstadd_front.c\
 ft_lstsize.c\
+ft_lstlast.c\
 
 HEADERS = libft.h
 OBJS= ${SRCS:.c=.o}
@@ -66,7 +67,7 @@ $(NAME) : $(OBJS)
 	ar -rcs $(NAME) $(OBJS) $(HEADERS)
 
 bonus:	$(OBJS) $(OBJS_B)
-			ar rcs $(NAME) $(OBJS) $(OBJS_B)
+			ar -rcs $(NAME) $(OBJS) $(OBJS_B) $(HEADERS)
 
 clean:
 	rm -f *.o

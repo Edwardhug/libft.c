@@ -6,7 +6,7 @@
 /*   By: lgabet <lgabet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:37:24 by lgabet            #+#    #+#             */
-/*   Updated: 2022/11/23 10:04:29 by lgabet           ###   ########.fr       */
+/*   Updated: 2022/11/23 10:13:59 by lgabet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,6 @@ void	ft_putnbr_fd(int n, int fd);
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
+t_list	*ft_lstlast(t_list *lst);
 
 #endif
