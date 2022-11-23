@@ -6,7 +6,7 @@
 /*   By: lgabet <lgabet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:37:24 by lgabet            #+#    #+#             */
-/*   Updated: 2022/11/23 00:08:49 by lgabet           ###   ########.fr       */
+/*   Updated: 2022/11/23 09:00:14 by lgabet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 typedef struct  s_list
 {
     void        *content;
-    struct slist *next;
-}               t_list;
+    struct s_list *next;
+}                t_list;
 
 void	ft_bzero(void *s, size_t n);
 int		ft_isalnum(int c);

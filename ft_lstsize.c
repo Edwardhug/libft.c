@@ -6,7 +6,7 @@
 /*   By: lgabet <lgabet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 00:05:28 by lgabet            #+#    #+#             */
-/*   Updated: 2022/11/23 00:10:03 by lgabet           ###   ########.fr       */
+/*   Updated: 2022/11/23 08:49:32 by lgabet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int ft_lstsize(t_list *lst)
     int i;
 
     i = 0;
-    while (lst[i].content)
+    while (lst[i].next)
         i++;
     return (i);
 }
