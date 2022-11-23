@@ -6,7 +6,7 @@
 #    By: lgabet <lgabet@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/09 17:05:16 by lgabet            #+#    #+#              #
-#    Updated: 2022/11/23 12:27:11 by lgabet           ###   ########.fr        #
+#    Updated: 2022/11/23 12:58:18 by lgabet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,8 @@ ft_lstsize.c\
 ft_lstlast.c\
 ft_lstadd_back.c\
 ft_lstdelone.c\
-ft_lstclear.c
+ft_lstclear.c\
+ft_lstiter.c
 
 HEADERS = libft.h
 OBJS= ${SRCS:.c=.o}
