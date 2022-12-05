@@ -6,7 +6,7 @@
 /*   By: lgabet <lgabet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 14:39:25 by lgabet            #+#    #+#             */
-/*   Updated: 2022/11/10 15:18:01 by lgabet           ###   ########.fr       */
+/*   Updated: 2022/12/05 18:44:14 by lgabet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,15 @@
 char	*ft_strchr(const char	*s, int c)
 {
 	int		i;
-	char	*p;
 
 	i = 0;
 	while (s[i])
 	{
 		if (s[i] == (char)c)
-		{
-			p = (char *)s + i;
-			return (p);
-		}
+			return ((char *)&s[i]);
 		i++;
 	}
-	if (c == '\0')
-	{
-		p = (char *)s + i;
-		return (p);
-	}
-	p = (NULL);
+	if ((unsigned char)c == '\0')
+		return ((char *)&s[i]);
 	return (NULL);
 }

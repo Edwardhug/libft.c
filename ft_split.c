@@ -6,7 +6,7 @@
 /*   By: lgabet <lgabet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 09:44:20 by lgabet            #+#    #+#             */
-/*   Updated: 2022/11/16 14:00:26 by lgabet           ###   ########.fr       */
+/*   Updated: 2022/12/05 19:11:45 by lgabet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ char	**ft_free(char **str, char *tamp)
 	return (NULL);
 }
 
-int	ft_size(char *str, int i, char c)
+int	ft_size_split(char *str, int i, char c)
 {
 	int	count;
 
@@ -72,10 +72,10 @@ char	**ft_algo(char *str, char c, char **ret, int i)
 		j = 0;
 		if (str[i] != c)
 		{
-			ret[k] = malloc(sizeof(char) * ft_size(str, i, c) + 1);
-			if (!ret)
+			ret[k] = malloc(sizeof(char) * ft_size_split(str, i, c) + 1);
+			if (!ret[k])
 				return (ft_free(ret, str));
-			while (j < ft_size(str, i, c) && str[i])
+			while (j < ft_size_split(str, i, c) && str[i])
 			{
 				ret[k][j] = str[i + j];
 				j++;
@@ -102,6 +102,8 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	tamp = ft_strtrim(s, set);
+	if (!tamp)
+		return (NULL);
 	ret = malloc(sizeof(char *) * (ft_count(tamp, c) + 1));
 	if (!ret)
 	{

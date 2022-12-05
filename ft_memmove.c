@@ -6,7 +6,7 @@
 /*   By: lgabet <lgabet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 11:48:50 by lgabet            #+#    #+#             */
-/*   Updated: 2022/11/10 13:32:43 by lgabet           ###   ########.fr       */
+/*   Updated: 2022/12/05 14:36:54 by lgabet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 
 	cdst = dst;
 	csrc = src;
+	if (dst == NULL && src == NULL)
+		return (NULL);
 	if (dst < src)
 	{
 		while (n--)
