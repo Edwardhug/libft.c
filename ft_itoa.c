@@ -6,7 +6,7 @@
 /*   By: lgabet <lgabet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 13:08:00 by lgabet            #+#    #+#             */
-/*   Updated: 2022/11/16 15:24:31 by lgabet           ###   ########.fr       */
+/*   Updated: 2022/12/06 13:25:20 by lgabet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,8 @@ char	*ft_itoa(int n)
 	if (n == 0)
 	{
 		str = malloc(sizeof(char) * 2);
+		if (!str)
+			return (NULL);
 		str[0] = '0';
 		str[1] = '\0';
 		return (str);
@@ -110,6 +112,8 @@ char	*ft_itoa(int n)
 	if (n == -2147483648)
 	{
 		str = malloc(sizeof(char) * 12);
+		if (!str)
+			return (NULL);
 		ft_exception(str);
 		return (str);
 	}

@@ -6,7 +6,7 @@
 /*   By: lgabet <lgabet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 12:57:31 by lgabet            #+#    #+#             */
-/*   Updated: 2022/11/23 13:02:25 by lgabet           ###   ########.fr       */
+/*   Updated: 2022/12/06 13:27:24 by lgabet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	while (lst)
+	while (lst && f)
 	{
 		(*f)(lst->content);
 		lst = lst->next;

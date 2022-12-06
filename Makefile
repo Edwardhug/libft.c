@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
+#    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: lgabet <lgabet@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/09 17:05:16 by lgabet            #+#    #+#              #
-#    Updated: 2022/12/05 20:58:42 by lgabet           ###   ########.fr        #
+#    Updated: 2022/12/06 11:29:01 by lgabet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,10 +65,10 @@ OBJS_B= ${SRCS_B:.c=.o}
 
 all: $(NAME)
 
-%.o:%.c $(HEADERS) Makefile
+%.o : %.c $(HEADERS) Makefile
 		$(CC) $(CFLAGS) -c $< -o ${<:.c=.o}
-
-$(NAME) : $(OBJS)
+	
+$(NAME) : $(OBJS) $(HEADERS)
 	ar -rcs $(NAME) $(OBJS) $(HEADERS)
 
 bonus:	$(OBJS) $(OBJS_B)
@@ -81,3 +81,5 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all re bonus clean fclean

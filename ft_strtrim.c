@@ -6,25 +6,11 @@
 /*   By: lgabet <lgabet@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 14:39:38 by lgabet            #+#    #+#             */
-/*   Updated: 2022/11/16 11:15:42 by lgabet           ###   ########.fr       */
+/*   Updated: 2022/12/06 10:49:47 by lgabet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-int	ft_charstr(char c, char const	*str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] == c)
-			return (1);
-		i++;
-	}
-	return (0);
-}
 
 int	ft_lenend(char const *s1, char const *set)
 {
@@ -33,7 +19,7 @@ int	ft_lenend(char const *s1, char const *set)
 
 	count = 0;
 	i = ft_strlen(s1) - 1;
-	while (ft_charstr(s1[i], set) != 0 && i >= 0)
+	while (ft_strchr(set, (int)s1[i]) != 0 && i > 0)
 	{
 		count++;
 		i--;
@@ -48,7 +34,7 @@ size_t	ft_lenbegin(char const *s1, char const *set)
 
 	i = 0;
 	count = 0;
-	while (ft_charstr(s1[i], set) != 0 && s1[i])
+	while (ft_strchr(set, (int)s1[i]) != 0 && s1[i])
 	{
 		count++;
 		i++;
